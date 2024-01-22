@@ -345,6 +345,7 @@ func (b *SelectRequestBuilder) OrderBy(column, direction string) *SelectRequestB
 	return b
 }
 
+// Limit sets the limit of rows to be returned for the SELECT request.
 func (b *SelectRequestBuilder) Limit(count int) *SelectRequestBuilder {
 	b.params.Set("limit", fmt.Sprintf("%d", count))
 	return b
