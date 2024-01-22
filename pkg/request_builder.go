@@ -345,6 +345,11 @@ func (b *SelectRequestBuilder) OrderBy(column, direction string) *SelectRequestB
 	return b
 }
 
+func (b *SelectRequestBuilder) Limit(count int) *SelectRequestBuilder {
+	b.params.Set("limit", fmt.Sprintf("%d", count))
+	return b
+}
+
 // Range sets the range of rows to be returned for the SELECT request.
 func (b *SelectRequestBuilder) Range(from, to int) *SelectRequestBuilder {
 	b.params.Set("range", fmt.Sprintf("%d-%d", from, to))
